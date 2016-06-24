@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Migrate Your Way to Drupal 8 Greatness</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:500|Quattrocento+Sans:400,700,400italic);
+
+section {
+  background-color: white;
+  color: black;
+  padding: 2em;
+  font-family: "Quattrocento Sans", Helvetica, Verdana, sans-serif;
+  font-weight: 400;
+  background-size: cover;
+}
+
+section.reverse {
+  background-color: black;
+  color: white;
+}
+
+section p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+section strong {
+  font-weight: 700;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Ubuntu, Arial, sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.big li {
+  font-size: 1.2em;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+cite {
+  font-size: .8em;
+  color: #666;
+  position: absolute;
+  bottom: 0;
+}
+
+blockquote cite {
+  color: inherit;
+  display: block;
+  position: relative;
+  text-align: right;
+  padding-right: 1em;
+}
+
+blockquote cite::before {
+  content: "—";
+}
+
+a:link,
+a:visited {
+  color: #99CCFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+</style>
+</head>
+
+<body>
+<section class="reverse" style="padding-top: 2em">
+  <h1>Migrate Your Way to Drupal 8 Greatness</h1>
+  <h2>Use D8's core migrate module to bring in content from older Drupal sites, other databases, or HTML files.</h2>
+  <br />
+  <h4><a href="https://etherpad.mozilla.org/migrate-d8-great">etherpad.mozilla.org/migrate-d8-great</a></h4>
+  <br />
+  <h4><a href="https://mlncn.withknown.com/">@mlncn</a><br />
+    <a href="http://agaric.com/">agaric.com</a></h4>
+</section>
+
+<section style="background-image:url(BackFutureflyingcar.jpg);">
+  <!-- Welcome to the future we were all promised!  https://www.youtube.com/watch?v=QfvjLAFQlaM -->
+</section>
+
+<section style="background-image:url(jeep-in-ditch-recall-IMG_0724.jpg);">
+  <!--  -->
+  <cite><a href="https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/">Andy Greenberg: Hackers Remotely Kill a Jeep on the Highway—With Me in It</a></cite>
+</section>
+
+<section style="background-image:url(sky.jpg);">
+  <!-- . -->
+  <blockquote><big><big><strong>.</strong><cite>DR</cite></big></big></blockquote>
+  <cite>Attrib, <a href="">""</a></cite>
+</section>
+
+<section style="background-image: url(.jpg);">
+  <h2 style="margin-top: 10em">.</h2>
+  <cite><a href="https://www.flickr.com/photos/littlesister/">IndyDina</a>, ""</cite>
+</section>
+
+<section style="background-image:url(.png); background-size:contain; background-position: center; background-repeat: no-repeat;">
+  <cite><a href="/"></a></cite>
+</section>
+
+<section class="reverse" style="background-image:url(doctorow-civilwar-spreadsheet.jpeg);">
+  <blockquote style="background-color: black; padding: 0.5em"><big><big>  </big></big></blockquote>
+  <!--  -->
+  <cite>Cory Doctorow, <a href="http://boingboing.net/2012/08/23/civilwar.html">"The coming civil war over general purpose computing"</a></cite>
+</section>
+
+<section style="background-image:url(1413479953ewaste2.jpg);">
+  <!-- .-->
+</section>
+
+<section>
+  <h2></h2>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</section>
+
+<section style="padding-top: 0">
+  <h3><img src="research_ethics.png"></h3>
+  <blockquote></blockquote>
+  <cite><a href="http://xkcd.com/1390/">xkcd.com/1390</a></cite>
+</section>
+
+<section style="padding-top:6em">
+  <ol class="big">
+    <li><big><strong>Share data</strong></big></li>
+    <li><big><strong>???</strong></big></li>
+    <li><big><strong>Profit</strong></big></li>
+  </ol>
+</section>
+
+<section class="reverse" style="padding:6em 10em;">
+  <h4><a href="https://etherpad.mozilla.org/future-here">etherpad.mozilla.org/migrate-d8-great</a></h4>
+  <h4><a href="http://mlncn.withknown.com/" rel="author">benjamin melançon</a></h4>
+  <h5><a href="mailto:ben@agaric.com">ben@agaric.com</a></h5>
+  <h5><a href="https://twitter.com/mlncn">@mlncn</a></h5>
+</section>
+
+<section id="lorenz" style="text-align:center;padding-top:0;">
+  <canvas></canvas>
+</section>
+
+<script src="d3.v3.min.js"></script>
+<script src="stack.v1.js"></script>
+<script>
+
+var mystack = stack()
+    .on("activate", activate)
+    .on("deactivate", deactivate);
+
+var section = d3.selectAll("section"),
+    lorenz = d3.select("#lorenz"),
+    lorenzIndex = section[0].indexOf(lorenz.node());
+
+function activate(d, i) {
+  if (i === lorenzIndex) startLorenz();
+}
+
+function deactivate(d, i) {
+  if (i === lorenzIndex) stopLorenz();
+}
+
+var lorenzInterval;
+
+function startLorenz() {
+  var δτ = 0.003,
+      ρ = 28,
+      σ = 10,
+      β = 8 / 3,
+      x = .5,
+      y = .5,
+      z = 10,
+      n = 30;
+
+  var width = 1280,
+      height = 720;
+
+  var canvas = d3.select("canvas")
+      .style("position", "absolute")
+      .style("top", 0)
+      .style("left", 0)
+      .style("width", "100%")
+      .style("height", "100%")
+      .attr("width", width)
+      .attr("height", height);
+
+  var color = d3.scale.linear()
+      .domain([0, 20, 30, 50])
+      .range(["yellow", "orange", "brown", "purple"])
+      .interpolate(d3.interpolateHcl);
+
+  var context = canvas.node().getContext("2d");
+
+  context.lineWidth = .2;
+  context.fillStyle = "rgba(0,0,0,.03)";
+
+  d3.timer(function() {
+    context.save();
+    context.globalCompositeOperation = "lighter";
+    context.translate(width / 2, height / 2);
+    context.scale(12, 14);
+    context.rotate(30);
+    for (var i = 0; i < n; ++i) {
+      context.strokeStyle = color(z);
+      context.beginPath();
+      context.moveTo(x, y);
+      x += δτ * σ * (y - x);
+      y += δτ * (x * (ρ - z) - y);
+      z += δτ * (x * y - β * z);
+      context.lineTo(x, y);
+      context.stroke();
+    }
+    context.restore();
+    return !lorenzInterval;
+  });
+
+  lorenzInterval = setInterval(function() {
+    context.fillRect(0, 0, width, height);
+  }, 100);
+}
+
+function stopLorenz() {
+  lorenzInterval = clearInterval(lorenzInterval);
+}
+
+</script>
+</body>
+</html>

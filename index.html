@@ -18,8 +18,23 @@ section {
 }
 
 section.reverse {
-  background-color: black;
+  background-color: #0678be;
   color: white;
+}
+
+a:link,
+a:visited {
+  color: #99CCFF;
+  text-decoration: none;
+}
+
+section.reverse a:link,
+section.reverse a:visited {
+  color: yellow;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 section p {
@@ -67,16 +82,6 @@ blockquote cite {
 
 blockquote cite::before {
   content: "—";
-}
-
-a:link,
-a:visited {
-  color: #99CCFF;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 
 </style>

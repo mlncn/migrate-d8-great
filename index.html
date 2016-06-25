@@ -119,7 +119,7 @@ blockquote cite::before {
 </section>
 
 <!-- OK, apparently some people like Joomla, but we'll be ignoring that for the rest of our talk. -->
-<section style="background-image:url(1XOOwANX.jpeg); background-size: inherit; background-position: top center; background-repeat: no-repeat;">
+<section style="background-image:url(1XOOwANX.jpeg); background-size: inherit; background-position: center; background-repeat: no-repeat;">
   <cite class="dark" style="margin-left: 10em"><a href="https://twitter.com/JoomlaDayMN">twitter.com/JoomlaDayMN</a></cite>
 </section>
 
@@ -135,14 +135,6 @@ blockquote cite::before {
   <cite>Wil Carraway, <a href="https://www.flickr.com/photos/carraways_photography/4154868194/in/photolist-7k9Myw-G5AUJR-4ArZGX-bwbBCp-goGgzt-dUFCXq-7Q2V4Y-boLRSY-62XsPF-E3JW8-mDLfwt-dr3Ux6-kCPGXx-9r9xTg-5E5PYC-aMBCUp-fKtoNR-7m2Cw9-pweMqq-b4cNJX-89juAe-dPZiKF-nzWwfD-pRcSpP-5u18Ud-mCFcFX-y9Rrpi-jAPFyv-8yHyC4-ehBxt-E2osU-9zRpGb-bzdXnu-qmtQ6g-8B6mDp-5QA5Xu-9p88cW-pAYqk-7ekyPh-dPYpMS-akVDzB-23Gukc-6Bgqn8-aQ6UDB-5SuDfQ-9Cxxgx-dr3Wpt-suD6p2-dVyHgK-85jYrw/">Pile of Junk</a></cite>
 </section>
 
-<section style="background-image:url();">
-  <!-- Tangle of wires -> gleaming something. -->
-  <blockquote>You're not going to migrate in your schema that you had in Drupal 7 or 6 or Joomla, you'll build it exactly as you want it in Drupal 8.<cite>Les Lim</cite></blockquote>
-  <cite>Attrib, <a href="">""</a></cite>
-</section>
-
-
-
 <section class="reverse">
   <p style="margin-left: 7em; margin-top: 6em;"><big><code>
       &nbsp; 1 * #Entities<br />
@@ -151,6 +143,19 @@ blockquote cite::before {
   <!-- This adds up faster than you think.  Five content types and one user with an average of eight fields each equals 6*1 + 6*8*2 = 102, at two hours per complexity point, that's 204 hours, or more than a month of one person's work, or $30,600 -->
   <!-- You'll note what i did *not* say, what is missing from that formula, is any mention of pieces of content. -->
 </section>
+
+<section style="background-image:url(btm-y88ciaav59f.jpg);">
+  <!-- Tangle of wires -> gleaming something. -->
+  <blockquote style="background-color: white">You're not going to migrate in your schema that you had in Drupal 7 or 6 or Joomla, you'll build it exactly as you want it in Drupal 8.<cite>Les Lim</cite></blockquote>
+  <cite>disco insolence, <a href="https://discoinsolence.wordpress.com/2013/09/04/solvognens-tangle-of-wires/">Solvognen’s Tangle Of Wires</a></cite>
+</section>
+
+<section style="background-image:url(tcdrupal-badge-character-encoding.jpg);">
+  <!-- My badge helpfully illustrates a common migration issue: character encoding -->
+</section>
+
+
+Before you migrate: What do you need to keep
 
 Before you migrate: What do you need to keep
 
@@ -173,9 +178,63 @@ URLs are forever
   <cite>Attrib, <a href="">""</a></cite>
 </section>
 
+<section>
+  In a file <code>agaric_migrate.info.yml</code>:
+  <pre>
+type: module
+name: Agaric Migrate
+description: "Migrate from Agaric's Drupal 7 site to its new Agaric 8 site."
+package: Migrate
+core: 8.x
+dependencies:
+  - migrate
+  - migrate_plus
+  </pre>
+</section>
+
+<section>
+  <p>For more complex processing, you can add process plugins.</p>
+
+  <p>In a file like <code>src/Plugin/migrate/process/NerdUserRoles.php</code></p>
+
+  <p>You start out with:</p>
+<pre>
+namespace Drupal\nerdcustom\Plugin\migrate\process;
+use Drupal\migrate\ProcessPluginBase;
+use Drupal\migrate\MigrateExecutableInterface;
+use Drupal\migrate\Row;
+</pre>
+
+<cite><a href="https://github.com/stevector/nerdologues-d8/blob/master/modules/custom/nerdcustom/src/Plugin/migrate/process/NerdUserRoles.php">github.com/stevector/nerdologues-d8</a></cite>
+</section>
+
+<!-- I'm showing you this because a bunch of improv comedians are ahead of my professional web development company in migrating to Drupal 8. -->
+
+<section>
+/**
+ * This plugin maps old roles to new roles.
+ *
+ * @MigrateProcessPlugin(
+ *   id = "nerd_user_roles"
+ * )
+ */
+class NerdUserRoles extends ProcessPluginBase {
+  /**
+   * {@inheritdoc}
+   */
+  public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+    if ($value == 3) {
+      return 'administrator';
+    }
+    elseif ($value == 4) {
+      return 'content_administrator';
+    }
+  }
+}
+
 <!-- If nothing else, i hope this presentation has shown you that migration is not just for the birds. -->
-<section style="background-image: url(loggerhead_turtles_migration_282.jpg); background-size: contain; background-position: bottom center; background-repeat: no-repeat;">
-  <cite><a href="http://www.earthtimes.org/nature/loggerhead-turtle-migration-mystery-solved/332/">Loggerhead turtle migration mystery solved</a></cite>
+<section style="background-image: url(loggerhead_turtles_migration_282.jpg);">
+  <cite>earthtimes.org, <a href="http://www.earthtimes.org/nature/loggerhead-turtle-migration-mystery-solved/332/">Loggerhead turtle migration mystery solved</a></cite>
 </section>
 
 <section class="reverse" style="padding:6em 10em; background-image: url(turtle-in-sand.png); background-size: contain; background-position: bottom center; background-repeat: no-repeat;">

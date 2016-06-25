@@ -123,8 +123,6 @@ blockquote cite::before {
   <cite>Wil Carraway, <a href="https://www.flickr.com/photos/carraways_photography/4154868194/in/photolist-7k9Myw-G5AUJR-4ArZGX-bwbBCp-goGgzt-dUFCXq-7Q2V4Y-boLRSY-62XsPF-E3JW8-mDLfwt-dr3Ux6-kCPGXx-9r9xTg-5E5PYC-aMBCUp-fKtoNR-7m2Cw9-pweMqq-b4cNJX-89juAe-dPZiKF-nzWwfD-pRcSpP-5u18Ud-mCFcFX-y9Rrpi-jAPFyv-8yHyC4-ehBxt-E2osU-9zRpGb-bzdXnu-qmtQ6g-8B6mDp-5QA5Xu-9p88cW-pAYqk-7ekyPh-dPYpMS-akVDzB-23Gukc-6Bgqn8-aQ6UDB-5SuDfQ-9Cxxgx-dr3Wpt-suD6p2-dVyHgK-85jYrw/">Pile of Junk</a></cite>
 </section>
 
-<section
-
 <section style="background-image:url();">
   <!-- Tangle of wires -> gleaming something. -->
   <blockquote>You're not going to migrate in your schema that you had in Drupal 7 or 6 or Joomla, you'll build it exactly as you want it in Drupal 8.<cite>Les Lim</cite></blockquote>
@@ -134,7 +132,16 @@ blockquote cite::before {
 <!-- You have to answer, why are you migrating? -->
 <section style="background-image:url(sadwomanbench.jpg); background-size: inherit; background-position: top center; background-repeat: no-repeat;">
   <blockquote style="margin-top: 14em"><big>No one likes Joomla.</big><cite>Anonymous Michigan State University technology team</cite></blockquote>
-  <cite>Joomla Templates Premium Sad PowerPoint, <a href="http://joomlatemplatespremium.com/Sad-PowerPoint-Template-Sad-PowerPoint-PPT/A/B004RT1XQK.htm">joomlatemplatespremium.com</a></cite>
+  <cite class="dark">Joomla Templates Premium Sad PowerPoint, <a href="http://joomlatemplatespremium.com/Sad-PowerPoint-Template-Sad-PowerPoint-PPT/A/B004RT1XQK.htm">joomlatemplatespremium.com</a></cite>
+</section>
+
+<section class="reverse">
+  <p style="margin-left: 7em; margin-top: 6em;"><big><code>
+      &nbsp; 1 * #Entities<br />
+      + 2 * #Fields<br />
+      = Migration Complexity</code></big></p>
+  <!-- This adds up faster than you think.  Five content types and one user with an average of eight fields each equals 6*1 + 6*8*2 = 102, at two hours per complexity point, that's 204 hours, or more than a month of one person's work, or $30,600 -->
+  <!-- You'll note what i did *not* say, what is missing from that formula, is any mention of pieces of content. -->
 </section>
 
 Before you migrate: What do you need to keep

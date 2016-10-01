@@ -136,7 +136,7 @@ URLs are forever
 <section style="background-image:url(Woodhead_Tunnel_west_portal_during_construction_of_new_tunnel.png);">
   <!-- Since no one is going to get this beautiful visual metaphore without explanation...  on the left, the train— that's your content —is coming through an already-made tunnel.  That's the Drupal upgrade process built into Drupal 8 core, which supports upgrades from Drupal 6 and Drupal 7.  On the right, you're stil constructing the tunnel.  That's migrating from any other source.
   It's worth maintaining this distinction in language:  Upgrade is from a recent version of Drupal to Drupal 8, and migration is bringing in content from a non-Drupal database, a CSV or spreadsheet, or flat files.  They use the same underlying technology, migrate module, which is fantastic news for either situation— our tools for both situations are more robust and will keep getting more robust in concert as people deal with edge cases in either situation and commit patches or create contrib modules.
-  These are two completely different approaches, and 
+  These are two completely different approaches, and in large part I have diametrically opposed advice for each.  We will get to approaches where you can start to split the difference.
   -->
   <cite>Ben Brooksbank, <a href="http://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=34441365">commons.wikimedia.org/w/index.php?curid=34441365</a></cite>
 </section>
@@ -173,6 +173,9 @@ URLs are forever
   <!-- Here we are!  There is one big advantage to seeing the Drupal 6 or 7 to Drupal 8 upgrade process through the GUI: It drives home that there are two completely different approaches for UPGRADING from recent versions of Drupal versus MIGRATING from anything else. -->
 </section>
 
+<section style="background-image: url(drupal-upgrade-are-you-sure-missing-paths.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
+</section>
+
 <section>
   <!-- Just kidding.  However, migrate_upgrade is entirely in core except for its drush commands. -->
   <pre>
@@ -198,6 +201,10 @@ URLs are forever
 
 <section style="background-image:url(drush-migrate-import-all.png);">
   <!-- Now we can run the migration!  OK, we could do that before, but now we can re-run and make tweaks. -->
+</section>
+
+<section style="">
+<!-- Granted, the ability to roll back a migration is not as crucial when you could get to the same state by re-installing the site -->
 </section>
 
 <section style="background-image:url(bluemarine.png);">

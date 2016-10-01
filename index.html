@@ -141,6 +141,32 @@ URLs are forever
   <!-- We'll start with the really easy point-and-click approach.  And you will learn from my less-than-successful experience why it's not necessarily a good one. -->
 </section>
 
+<section class="reverse">
+  <!-- What do you need to download?  Nothing!  Migrate and migrate upgrade are entirely in core! -->
+</section>
+
+<section style="background-image: url(migrate-core-screenshot-2016-06-25.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
+  <!-- Here are the three modules to enable. -->
+</section>
+
+<section style="background-image: url(upgrade-confirm-and-warm.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
+  <!-- Here Drupal warns you about the experimental nature of Migrate and upgrades. -->
+</section>
+
+<section style="background-image: url(drupal-upgrade-screen.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
+  <!-- Here's the tip that'll save you fifteen minutes, if you're as unclever as me: this is at /upgrade  - After clicking through the entire interface, i had to go back to the modules list and click the "Configure" link to get there. -->
+</section>
+
+<section>
+  <!-- Just kidding.  However, migrate_upgrade is entirely in core except for its drush commands. -->
+  <pre>
+  composer require drupal/migrate_plus
+  composer require drupal/migrate_tools
+  composer require drupal/migrate_upgrade
+  </pre>
+</section>
+
+
 <section style="background-image:url(upgrade-database-settings-php-drupal_6.png);">
   <!-- Bizarrely, to actually run the migration we just configured, we have to change the label for the source database to drupal_6, which is the name of the migration group that was created. Just go along with it; i blundered through this so you wouldn't have to. -->
 </section>
@@ -163,7 +189,7 @@ URLs are forever
 </section>
 
 <section style="background-image:url(drupal5-garland-cyrillic.png);">
-  <!-- Ah, Drupal 5 and the Garland theme.  Showing off multilingual capabilities, and XHTML 1.0!  I hope there are no cuss words on there. -->
+  <!-- Ah, Drupal 5 and the Garland theme.  Showing off multilingual capabilities, and XHTML 1.0!  I hope there are no cuss words on there.  There are not currently any supported upgrade-style migration plugins for Drupal 5 or earlier.  You can either use Drupal's in-place upgrading process to update them to Drupal 6, and then use migrate upgrade— or you can take the custom migration approach, which is probably better than taking anything more than necessary from a site a decade or more old. So let's talk about that approach where we're building the migration tunnel ourselves... -->
 </section>
 
 <section style="background-image:url(12412508015_1e5340004b_k.jpg);">
@@ -231,26 +257,6 @@ URLs are forever
   <!-- Cover of a Ralph Kimball book.
   If you like to understand the theory behind what you're doing, read a Ralph Kimbal book.  Keep in mind, however, that   If you just want  -->
   <cite>Attrib, <a href="">""</a></cite>
-</section>
-
-<section class="reverse">
-  <!-- What do you need to install?  Nothing!  Migrate's entirely in core! -->
-</section>
-
-<section style="background-image: url(migrate-core-screenshot-2016-06-25.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
-</section>
-
-<section style="background-image: url(drupal-upgrade-screen.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
-  <!-- Here's the tip that'll save you fifteen minutes, if you're as unclever as me: this is at /upgrade  - After clicking through the entire interface, i had to go back to the modules list and click the "Configure" link to get there. -->
-</section>
-
-<section>
-  <!-- Just kidding.  However, migrate_upgrade is entirely in core except for its drush commands. -->
-  <pre>
-  composer require drupal/migrate_plus
-  composer require drupal/migrate_tools
-  composer require drupal/migrate_upgrade
-  </pre>
 </section>
 
 <section style="background-image: url(migrate-plus-releases-screenshot-2016-09-25.png); background-size: contain; background-position: center; background-repeat: no-repeat;">

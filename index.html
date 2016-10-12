@@ -104,113 +104,38 @@ blockquote cite::before {
     <a href="http://agaric.com/">agaric.com</a></h4>
 </section>
 
-<section style="background-image:url(sandhill-cranes-flying-stmedia-startribune-winegar.jpg);">
-  <!--  -->
+
+<section style="background-image: url(upgrade-database-settings-php.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
 </section>
-
-<!-- You have to answer, why are you migrating? -->
-<section style="background-image:url(sadwomanbench.jpg); background-size: inherit; background-position: top center; background-repeat: no-repeat;">
-  <blockquote style="margin-top: 14em"><big>No one likes Joomla.</big><cite>Anonymous Michigan State University technology team</cite></blockquote>
-  <cite class="dark">Joomla Templates Premium Sad PowerPoint, <a href="http://joomlatemplatespremium.com/Sad-PowerPoint-Template-Sad-PowerPoint-PPT/A/B004RT1XQK.htm">joomlatemplatespremium.com</a></cite>
-</section>
-
-<section style="background-image:url(katrina-wrecked-house.jpg);">
-<!-- Maybe you were hacked because your site is old and insecure, or maybe the living room module is not maintained anymore and it's taken everything down around with it, or you just want your data to move into new digs -->
-</section>
-
-<section style="background-image:url(How-to-Inventory-Your-Home-e1458050076712.jpg);">
-<!--
-Before you migrate: What do you need to keep
-
-Everything?
-
-URLs are forever
--->
-</section>
-
-<section style="background-image:url(Science-20Lab-20August-20Fit-20Families-20Flyer.jpg); background-size: contain; background-repeat: no-repeat; background-position: center center;">
-  <!-- The migrate and upgrade modules will all warn you they're experimental— yet they're in core.  What gives?  This is part of Drupal's exciting new approach to releases. -->
-  <!-- City of Apache Junction, Arizona - http://www.azcentral.com/story/life/kids/2014/08/04/mad-science-lab-apache-junction-kids-event/13584387/ -->
-</section>
-
-<section style="background-image:url(Woodhead_Tunnel_west_portal_during_construction_of_new_tunnel.png);">
-  <!-- Since no one is going to get this beautiful visual metaphore without explanation...  on the left, the train— that's your content —is coming through an already-made tunnel.  That's the Drupal upgrade process built into Drupal 8 core, which supports upgrades from Drupal 6 and Drupal 7.  On the right, you're stil constructing the tunnel.  That's migrating from any other source.
-  It's worth maintaining this distinction in language:  Upgrade is from a recent version of Drupal to Drupal 8, and migration is bringing in content from a non-Drupal database, a CSV or spreadsheet, or flat files.  They use the same underlying technology, migrate module, which is fantastic news for either situation— our tools for both situations are more robust and will keep getting more robust in concert as people deal with edge cases in either situation and commit patches or create contrib modules.
-  These are two completely different approaches, and in large part I have diametrically opposed advice for each.  We will get to approaches where you can start to split the difference.
-  -->
-  <cite>Ben Brooksbank, <a href="http://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=34441365">commons.wikimedia.org/w/index.php?curid=34441365</a></cite>
-</section>
-
-<section style="background-image:url(cochituate-rail-trail-framingham-natick.jpg);">
-</section>
-
-<section style="background-image:url(drupal6.jpg);">
-  <!-- We'll start with the easier, prebuilt option— migrating from previous versions of Drupal. -->
-</section>
-
-<section style="background-image:url(Click-1-512.png); background-size: contain; background-repeat: no-repeat; background-position: center center;">
-  <!-- We'll start with the really easy point-and-click approach.  And you will learn from my less-than-successful experience why it's not necessarily a good one. -->
-</section>
-
-<section class="reverse">
-  <!-- What do you need to download?  Nothing!  Migrate and migrate upgrade are entirely in core!
-  What do you need to set up first?  Nothing— start with a standard install of Drupal 8.  If anyone would like to experiment with minimal, i'd like to hear your results, but even though you want an empty, unconfigured shell for Drupal 6 or Drupal 7 to be migrated into, -->
-</section>
-
-<section style="background-image: url(migrate-core-screenshot-2016-06-25.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
-  <!-- Here are the three modules to enable. They are all in core, albeit labeled experimental for the moment, but they have matured hugely over just the past few months. -->
-</section>
-
-<section style="background-image: url(migrate-modules-enabled-and-experimental-notice.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
-  <!-- After enabling, Drupal warns you about the experimental nature of Migrate and upgrades— but you won't need that; you won't be able to get the image of that mad scientist out of your mind.  Here's the tip that'll save you fifteen minutes, if you're as unclever as me: click on that link to run the upgrade. -->
-</section>
-
-<section style="background-image: url(drupal-upgrade-screen.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
-  <!-- If you leave the modules page without  this is at /upgrade  - After clicking through the entire interface, i had to go back to the modules list and click the "Configure" (gear icon) link on the Migrate Drupal UI to get there. drupal-upgrade-page.png 
-   There is one big advantage to seeing the Drupal 6 or 7 to Drupal 8 upgrade process through the GUI: It drives home that there are two completely different approaches for UPGRADING from recent versions of Drupal versus MIGRATING from anything else. -->
-</section>
-
-<section style="background-image: url(drupal-upgrade-are-you-sure-missing-paths.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
-  <!--
-  Don't take a large number of allegedly missing migrations too seriously.
-  This includes modules like help, which is a core module, and would be completely covered - if there were anything to migrate.
-  -->
-</section>
-
-<section style="background-image: url(running-upgrade-screen.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
-</section>
-
-<section style="background-image: url(drupal-empty-content.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
 
 <section>
-  <!-- Just kidding.  However, migrate_upgrade is entirely in core except for its drush commands. -->
   <pre>
-  composer require drupal/migrate_plus
-  composer require drupal/migrate_tools
-  composer require drupal/migrate_upgrade
+drush migrate-upgrade --legacy-root=http://data.agaric.com --configure-only
   </pre>
 </section>
-
-
-<section style="background-image:url(upgrade-database-settings-php-drupal_6.png);">
-  <!-- Bizarrely, to actually run the migration we just configured, we have to change the label for the source database to drupal_6, which is the name of the migration group that was created. Just go along with it; i blundered through this so you wouldn't have to. -->
-</section>
-
 
 <section style="background-image:url(drush-migrate-upgrade-configure-only.png); background-size: contain; background-repeat: no-repeat; background-position: center center; background-color: gray;">
   <!-- This is working with the same 'upgrade' database with the source database credentials in settings.local.php -->
 </section>
 
+
 <section style="background-image:url(upgrade-database-settings-php-drupal_6.png);">
   <!-- Bizarrely, to actually run the migration we just configured, we have to change the label for the source database to drupal_6, which is the name of the migration group that was created. Just go along with it; i blundered through this so you wouldn't have to. -->
 </section>
+
 
 <section style="background-image:url(drush-migrate-import-all.png);">
   <!-- Now we can run the migration!  OK, we could do that before, but now we can re-run and make tweaks. -->
 </section>
 
-<section style="">
+<section>
+  <pre>
+  drush mr --all
+  </pre>
 <!-- Granted, the ability to roll back a migration is not as crucial when you could get to the same state by re-installing the site -->
+</section>
+
+<section style="background-image:url(missing-filter-plugins.png)">
 </section>
 
 <section style="background-image:url(bluemarine.png);">
@@ -272,6 +197,9 @@ URLs are forever
   <!-- My badge helpfully illustrates a common migration issue: character encoding -->
 </section>
 
+<section style="background-image:url(substitition-to-remove-extra-quotation-marks.png)">
+</section>
+
 
 <section class="reverse">
   <br /><br />
@@ -325,6 +253,7 @@ use Drupal\migrate\Row;
 <!-- I'm showing you this because a bunch of improv comedians are ahead of my professional web development company in migrating to Drupal 8. -->
 
 <section>
+<pre>
 /**
  * This plugin maps old roles to new roles.
  *
@@ -345,6 +274,8 @@ class NerdUserRoles extends ProcessPluginBase {
     }
   }
 }
+</pre>
+</section>
 
 <!-- If nothing else, i hope this presentation has shown you that migration is not just for the birds. -->
 <section style="background-image: url(loggerhead_turtles_migration_282.jpg);">
